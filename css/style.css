@@ -1,0 +1,664 @@
+/* start variables */
+:root {
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --orange-color: #f59e0b;
+  --green-color: #22c55e;
+  --red-color: #f44336;
+  --grey-color: #888888;
+}
+/* end variables */
+
+/* basic global rules */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+}
+::-webkit-scrollbar-thumb::hover {
+  background-color: var(--blue-alt-color);
+}
+/* end global rules */
+
+/* start page styles */
+.page {
+  background-color: #f1f5f9;
+  min-height: 100vh;
+}
+/* end page styles */
+
+/* start sidebar styles */
+.sidebar {
+  width: 250px;
+  box-shadow: 0 0 10px #ddd;
+  transition: 0.3s;
+  padding: 20px 0;
+}
+
+.sidebar > h3::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  width: 80px;
+  height: 2px;
+  background-color: black;
+}
+
+.sidebar > h3::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+.sidebar ul {
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  margin-left: 20px;
+}
+
+.sidebar ul li {
+  padding: 0 20px 5px 0;
+  background-color: white;
+}
+
+.sidebar ul li {
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #f1f5f9;
+}
+
+.sidebar ul li:has(+ li:hover),
+.sidebar ul li:has(+ li.active) {
+  border-bottom-right-radius: 20px;
+}
+.sidebar ul li:hover + li,
+.sidebar ul li.active + li {
+  border-top-right-radius: 20px;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    width: 60px;
+    padding: 0;
+  }
+  .sidebar > h3 {
+    font-size: 13px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  .sidebar > h3::before,
+  .sidebar > h3::after {
+    display: none;
+  }
+  .sidebar ul {
+    margin-left: 0;
+  }
+  .sidebar ul li {
+    align-items: center;
+    padding: 0 10px 5px;
+  }
+  .sidebar ul li a i {
+    margin: 0;
+  }
+  .sidebar ul li a span {
+    display: none;
+  }
+}
+/* end sidebar styles */
+
+/* start content styles */
+.content {
+  overflow-y: auto;
+  height: 100vh;
+}
+/* start head */
+.head .search::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--grey-color);
+}
+
+.head .search input {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-left: 30px;
+  margin-left: 5px;
+  width: 160px;
+  font-size: 13px;
+  transition: width 0.3s;
+}
+
+.head .search input:focus {
+  width: 200px;
+}
+.head .search input:focus::placeholder {
+  opacity: 0;
+}
+
+.head .icons .notification::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--red-color);
+}
+.head .icons img {
+  margin-left: 15px;
+  width: 32px;
+  height: 32px;
+}
+/* end head */
+/* start page title */
+.page h1 {
+  margin: 20px 20px 40px;
+  padding: 0;
+}
+.page h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 3px;
+  width: 120px;
+  background-color: white;
+}
+.page h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 3px;
+  width: 40px;
+  background-color: black;
+}
+/* end page title */
+/* start wrapper */
+.wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media (max-width: 767px) {
+  .wrapper {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+  }
+}
+/* end wrapper */
+/* end content styles */
+
+/* start dashboard page styles */
+.wrapper > div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* start welcome widget*/
+.welcome .cover {
+  padding: 20px 20px 10px;
+  background-color: #eeeeee;
+}
+
+.welcome .cover .text h2 {
+  margin: 0;
+}
+.welcome .cover .text p {
+  margin-top: 10px;
+}
+
+.welcome .cover img {
+  width: 200px;
+}
+
+.welcome .main {
+  background-color: white;
+  padding: 60px 0;
+}
+
+.welcome .main .image {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  transform: translateY(-50%);
+  padding: 4px;
+  width: 65px;
+  height: 65px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ddd;
+}
+.welcome .main .image img {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+.welcome .main .details {
+  padding: 10px 20px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.welcome .main .details > div {
+  flex: 1;
+}
+.welcome .main .details > div p:first-child {
+  margin-bottom: 0;
+}
+.welcome .main .details > div p:last-child {
+  margin-top: 10px;
+}
+
+.welcome .main .visit {
+  margin: 20px 20px 0 auto;
+}
+
+@media (max-width: 767px) {
+  .welcome .cover .text {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .welcome .cover img {
+    display: none;
+  }
+  .welcome .main {
+    padding-bottom: 20px;
+  }
+  .welcome .main .image {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .welcome .main .details {
+    flex-direction: column;
+  }
+}
+/* end welcome widget*/
+
+/* start draft widget */
+.draft form input[type="text"],
+.draft form textarea {
+  padding: 10px;
+
+  background-color: #eeeeee;
+  border-radius: 6px;
+  border: none;
+}
+.draft form input[type="text"] {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.draft form textarea {
+  font-family: monospace;
+  font-size: 13px;
+  resize: none;
+}
+/* end draft widget */
+
+/* start targets widget */
+.targets {
+  padding-bottom: 40px;
+}
+.targets .targets-details .target .icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.targets .targets-details .target .target-content {
+  flex: 1;
+}
+
+.targets .targets-details .target .progress {
+  height: 5px;
+}
+.targets .targets-details .target .progress span {
+  height: 100%;
+}
+.targets .targets-details .target .progress span::before,
+.targets .targets-details .target .progress span::after {
+  position: absolute;
+  right: 0;
+  transform: translateX(50%);
+  background-color: inherit;
+}
+.targets .targets-details .target .progress span::before {
+  content: attr(data-progress);
+  top: -32px;
+  padding: 3px 5px;
+  font-size: 12px;
+  color: white;
+  border-radius: 5px;
+}
+.targets .targets-details .target .progress span::after {
+  content: "";
+  top: -12px;
+  height: 0;
+  width: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent white white white;
+}
+/* end targets widget */
+
+/* start statistics widget */
+.statistics .stats-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.statistics .stats-details .box {
+  width: calc(50% - 10px);
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+}
+/* end statistics widget */
+
+/* start news widget */
+.news .news-list .box {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.news .news-list .box:not(:last-child) {
+  border-bottom: 1px solid #eeeeee;
+}
+.news .news-list .box img {
+  width: 100px;
+  border-radius: 6px;
+}
+.news .news-list .box .text {
+  flex: 1;
+}
+.news .news-list .box .date {
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border-radius: 6px;
+}
+/* end news widget */
+
+/* start tasks widget */
+.tasks .tasks-list .box {
+  padding: 15px 0;
+}
+.tasks .tasks-list .box:not(:last-child) {
+  border-bottom: 1px solid #eeeeee;
+}
+.tasks .tasks-list .box.done {
+  opacity: 0.3;
+}
+.tasks .tasks-list .box.done .text {
+  text-decoration: line-through;
+}
+.tasks .tasks-list .box .delete {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tasks .tasks-list .box .delete:hover {
+  color: var(--red-color);
+}
+/* end tasks widget */
+
+/* start top searh widget */
+.top-search .items-list .item .count {
+  font-size: 13px;
+  background-color: #eeeeee;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+/* end top searh widget */
+
+/* start uploads widget */
+.uploads .uploads-list {
+  margin-top: 20px;
+}
+.uploads .uploads-list .upload {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.uploads .uploads-list .upload:last-child {
+  border: none;
+}
+.uploads .uploads-list .upload img {
+  width: 40px;
+  height: 40px;
+}
+.uploads .uploads-list .upload .text {
+  flex: 1;
+}
+.uploads .uploads-list .upload .text p:first-child {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.uploads .uploads-list .upload .size {
+  font-size: 13px;
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border-radius: 6px;
+}
+/* end uploads widget */
+
+/* start project widget */
+.project img {
+  position: absolute;
+  width: 150px;
+  right: 0;
+  bottom: 0;
+  opacity: 0.15;
+}
+.project .progress-list {
+  margin-left: 12px;
+  border-left: 2px solid var(--blue-color);
+}
+.project .progress-list p {
+  position: relative;
+  padding-left: 30px;
+  margin-top: 30px;
+}
+.project .progress-list p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: 2px solid var(--blue-color);
+  border-radius: 50%;
+}
+.project .progress-list p:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  background-color: var(--blue-color);
+  border-radius: 50%;
+}
+.project .progress-list p:nth-last-child(2)::after {
+  animation: flash 1.5s ease-in infinite;
+}
+
+@keyframes flash {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: var(--blue-color);
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: white;
+  }
+}
+/* end project widget */
+/* start reminders widget */
+.reminders .reminders-list {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.reminders .reminders-list .reminder {
+  margin-top: 15px;
+  padding-left: 15px;
+  border-left: 3px solid var(--color);
+}
+.reminders .reminders-list .reminder::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+/* end reminders widget */
+
+/* start latest post widget */
+.latest-post .user-info {
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.latest-post .user-info img {
+  width: 50px;
+  height: 50px;
+}
+.latest-post .text {
+  line-height: 1.8;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+.latest-post .reaction {
+  padding: 10px 0;
+}
+/* end latest post widget */
+
+/* start social stats widget */
+.social-stats .social-list {
+  margin-top: 30px;
+}
+.social-stats .social-list .item {
+  margin-bottom: 15px;
+}
+.social-stats .social-list .item .icon {
+  background-color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  transition: 0.3s;
+}
+.social-stats .social-list .item:hover .icon {
+  transform: rotate(10deg);
+}
+.social-stats .social-list .item .info {
+  flex: 1;
+  padding-right: 10px;
+}
+.social-stats .social-list .item .info .text {
+  color: var(--color);
+  margin-left: 20px;
+}
+.social-stats .social-list .item .info .btn-sm {
+  color: white;
+  background-color: var(--color);
+}
+/* end social stats widget */
+
+/* start projects widget */
+.projects .responsive-table {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+.projects table {
+  min-width: 1000px;
+  border-spacing: 0;
+}
+.projects table td {
+  padding: 15px;
+}
+.projects table thead td {
+  background-color: #eee;
+  font-weight: bold;
+}
+.projects table tbody tr {
+  transition: 0.3s;
+}
+.projects table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+.projects table tbody td {
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+.projects table tbody td img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 2px;
+  background-color: white;
+}
+.projects table tbody td img:not(:first-child) {
+  margin-left: -20px;
+}
+/* end projects widget */
+/* end dashboard page styles */
