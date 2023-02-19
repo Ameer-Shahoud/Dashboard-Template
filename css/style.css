@@ -684,7 +684,8 @@ ul {
   border: 1px solid #cccccc;
   border-radius: 6px;
 }
-.general-info form :disabled,.general-info form :disabled::placeholder {
+.general-info form :disabled,
+.general-info form :disabled::placeholder {
   cursor: no-drop;
   background-color: #f0f4f8;
   color: #bbb;
@@ -717,6 +718,7 @@ ul {
   padding: 10px;
   font-size: 12px;
   border: none;
+  border-radius: 6px;
   border-left: 1px solid #cccccc;
 }
 /* end social info widget */
@@ -729,8 +731,9 @@ ul {
   flex: 1;
   padding: 15px;
   border: 2px solid transparent;
+  transition: 0.3s;
 }
-.backup-manager .storage .item:has( :checked) {
+.backup-manager .storage .item:has(:checked) {
   color: var(--blue-color);
   border-color: var(--blue-color);
   border-radius: 10px;
@@ -744,3 +747,177 @@ ul {
 }
 /* end backup manager widget */
 /* end settings page styles */
+
+/* start profile page styles */
+/* start personal info widget */
+.personal-info {
+  padding: 0;
+}
+.personal-info .person {
+  width: 250px;
+  margin: 0;
+  padding: 20px 40px 20px 0;
+  border-right: 1px solid #eee;
+}
+.personal-info .person img {
+  width: 125px;
+  border-radius: 50%;
+}
+.personal-info .person .progress {
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  height: 7px;
+  border-radius: 50vh;
+  background-color: #eeeeee;
+}
+.personal-info .person .progress::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background-color: var(--blue-color);
+  border-radius: 50vh;
+}
+
+.personal-info .info {
+  flex: 1;
+  padding: 0;
+}
+.personal-info .info > div {
+  border-bottom: 1px solid #eee;
+}
+.personal-info .info .infos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.personal-info .info > div {
+  padding: 20px 20px 10px;
+}
+.personal-info .info h4 {
+  margin: 0 0 10px 0;
+}
+.personal-info .info .infos > div {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .personal-info {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .personal-info .person {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  .personal-info .info h4 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+/* end personal info widget */
+
+/* start skills widget */
+.profile-page .skills {
+  width: 35%;
+}
+.profile-page .skills .items > div {
+  padding: 20px 0;
+}
+.profile-page .skills .items > div:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+/* end skills widget */
+
+/* start activities widget */
+.profile-page .activities {
+  flex: 1;
+}
+.profile-page .activities .list .item {
+  padding: 20px 0;
+}
+.profile-page .activities .list .item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.profile-page .activities .list .item img {
+  width: 60px;
+}
+.profile-page .activities .list .item .text {
+  flex: 1;
+}
+/* end activities widget */
+
+@media (max-width: 991px) {
+  .profile-page .profile-wrapper {
+    flex-direction: column;
+  }
+  .profile-page .profile-wrapper > div {
+    width: 100%;
+  }
+  .profile-page .skills .items {
+    text-align: center;
+  }
+  .profile-page .activities .list .item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-page .activities .list .item img {
+    margin: 0;
+  }
+  .profile-page .activities .list .item > div {
+    margin-top: 10px;
+  }
+}
+/* end profile page styles */
+
+/* start projects page styles */
+.projects-page .project-box .date {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+.projects-page .project-box .team {
+  margin-top: 50px;
+}
+.projects-page .project-box .team img {
+  width: 40px;
+  border-radius: 50%;
+}
+.projects-page .project-box .team img:not(:first-child) {
+  margin-left: -20px;
+}
+.projects-page .project-box .services {
+  padding: 15px 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.projects-page .project-box .progress {
+  padding: 20px 0 0;
+}
+.projects-page .project-box .progress > div {
+  position: relative;
+  width: 200px;
+  height: 7px;
+  border-radius: 50vh;
+  background-color: #eeeeee;
+}
+.projects-page .project-box .progress > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--width);
+  background-color: var(--color);
+  border-radius: 50vh;
+}
+/* end projects page styles */

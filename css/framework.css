@@ -228,7 +228,7 @@
   font-size: 12px;
 }
 .fs-13 {
-  font-size: 12px;
+  font-size: 13px;
 }
 .fs-14 {
   font-size: 14px;
@@ -320,35 +320,69 @@
 
 /* End Button */
 
-/* Start Components */
-/* Start Custom Toggle */
-.custom-toggle {
-  display: none;
-  appearance: none;
-}
-.custom-toggle + .toggle-switch {
-  position: relative;
-  height: 30px;
-  width: 75px;
-  border-radius: 15px;
+/* Start Tags */
+.tag,
+.tag-sm,
+.tag-xs {
+  width: fit-content;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
   transition: 0.3s;
   cursor: pointer;
 }
-.custom-toggle:checked + .toggle-switch {
+.tag-sm {
+  font-size: 14px;
+}
+.tag-xs {
+  font-size: 12px;
+}
+.tag-grey {
+  background-color: #eeeeee;
+  color: black;
+}
+/* End Tags */
+
+/* Start Components */
+/* Start Custom Toggle */
+.custom-toggle,
+.custom-toggle-sm {
+  display: none;
+  appearance: none;
+}
+.custom-toggle + .toggle-switch,
+.custom-toggle-sm + .toggle-switch-sm {
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.custom-toggle + .toggle-switch {
+  height: 30px;
+  width: 75px;
+  border-radius: 15px;
+}
+.custom-toggle-sm + .toggle-switch-sm {
+  height: 20px;
+  width: 80px;
+  border-radius: 10px;
+}
+.custom-toggle:checked + .toggle-switch,
+.custom-toggle-sm:checked + .toggle-switch-sm {
   background-color: var(--blue-color);
 }
-.custom-toggle:not(:checked) + .toggle-switch {
+.custom-toggle:not(:checked) + .toggle-switch,
+.custom-toggle-sm:not(:checked) + .toggle-switch-sm {
   background-color: #cccccc;
 }
-.custom-toggle + .toggle-switch::before {
+.custom-toggle + .toggle-switch::before,
+.custom-toggle-sm + .toggle-switch-sm::before {
   font-family: var(--fa-style-family-classic);
   font-weight: 900;
   content: "\f00d";
   position: absolute;
   left: 3px;
   bottom: 3px;
-  height: 24px;
-  width: 24px;
+
   border-radius: 50%;
   background-color: white;
   color: #cccccc;
@@ -357,10 +391,25 @@
   align-items: center;
   transition: 0.3s;
 }
-.custom-toggle:checked + .toggle-switch::before {
+.custom-toggle + .toggle-switch::before {
+  height: 24px;
+  width: 24px;
+}
+.custom-toggle-sm + .toggle-switch-sm::before {
+  height: 14px;
+  width: 14px;
+  font-size: 10px;
+}
+.custom-toggle:checked + .toggle-switch::before,
+.custom-toggle-sm:checked + .toggle-switch-sm::before {
   content: "\f00c";
-  left: 48px;
   color: var(--blue-color);
+}
+.custom-toggle:checked + .toggle-switch::before {
+  left: 48px;
+}
+.custom-toggle-sm:checked + .toggle-switch-sm::before {
+  left: 63px;
 }
 /* End Custom Toggle */
 
@@ -432,7 +481,7 @@ label:hover .radio-switch {
   border-color: var(--blue-color);
 }
 .custom-radio + .radio-switch::before {
-  content: '';
+  content: "";
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -441,7 +490,7 @@ label:hover .radio-switch {
   transform: scale(0);
   transition: 0.3s;
 }
-.custom-radio:checked  + .radio-switch::before {
+.custom-radio:checked + .radio-switch::before {
   transform: scale(1);
 }
 /* End Custom Radio Button */
