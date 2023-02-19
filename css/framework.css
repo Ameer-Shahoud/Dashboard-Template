@@ -14,6 +14,11 @@
 .justify-content-between {
   justify-content: space-between;
 }
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .d-grid {
   display: grid;
@@ -157,6 +162,9 @@
 .bg-green {
   background-color: var(--green-color);
 }
+.bg-eee {
+  background-color: #eee;
+}
 
 .c-black {
   color: black;
@@ -217,6 +225,9 @@
 }
 
 .fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
   font-size: 12px;
 }
 .fs-14 {
@@ -302,13 +313,136 @@
   background-color: var(--green-color);
   color: white;
 }
+.btn-eee {
+  background-color: #eee;
+  color: black;
+}
 
 /* End Button */
 
 /* Start Components */
-.flex-between {
+/* Start Custom Toggle */
+.custom-toggle {
+  display: none;
+  appearance: none;
+}
+.custom-toggle + .toggle-switch {
+  position: relative;
+  height: 30px;
+  width: 75px;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.custom-toggle:checked + .toggle-switch {
+  background-color: var(--blue-color);
+}
+.custom-toggle:not(:checked) + .toggle-switch {
+  background-color: #cccccc;
+}
+.custom-toggle + .toggle-switch::before {
+  font-family: var(--fa-style-family-classic);
+  font-weight: 900;
+  content: "\f00d";
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: white;
+  color: #cccccc;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.custom-toggle:checked + .toggle-switch::before {
+  content: "\f00c";
+  left: 48px;
+  color: var(--blue-color);
+}
+/* End Custom Toggle */
+
+/* Start Custom CheckBox */
+label:has(.custom-checkbox) {
+  cursor: pointer;
+  display: flex;
   align-items: center;
 }
+.custom-checkbox {
+  display: none;
+  appearance: none;
+}
+.custom-checkbox + .checkbox-switch {
+  height: 18px;
+  width: 18px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid var(--grey-color);
+  margin-right: 15px;
+  transition: 0.3s;
+}
+.custom-checkbox:checked + .checkbox-switch,
+label:hover .checkbox-switch {
+  border-color: var(--blue-color);
+}
+.custom-checkbox + .checkbox-switch::before {
+  font-family: var(--fa-style-family-classic);
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 12px;
+  height: 100%;
+  width: 100%;
+  background-color: var(--blue-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(360deg) scale(0);
+  transition: 0.3s;
+}
+.custom-checkbox:checked + .checkbox-switch::before {
+  transform: rotate(0) scale(1);
+}
+/* End Custom CheckBox */
+
+/* Start Custom Radio Button */
+label:has(.custom-radio) {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.custom-radio {
+  display: none;
+  appearance: none;
+}
+.custom-radio + .radio-switch {
+  height: 20px;
+  width: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid var(--grey-color);
+  margin-right: 15px;
+  transition: 0.3s;
+}
+.custom-radio:checked + .radio-switch,
+label:hover .radio-switch {
+  border-color: var(--blue-color);
+}
+.custom-radio + .radio-switch::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+  background-color: var(--blue-color);
+  transform: scale(0);
+  transition: 0.3s;
+}
+.custom-radio:checked  + .radio-switch::before {
+  transform: scale(1);
+}
+/* End Custom Radio Button */
 /* End Components */

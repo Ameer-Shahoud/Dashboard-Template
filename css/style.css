@@ -224,6 +224,7 @@ ul {
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
   .wrapper {
@@ -662,3 +663,84 @@ ul {
 }
 /* end projects widget */
 /* end dashboard page styles */
+
+/* start settings page styles */
+/* start site control widget */
+.site-control .message {
+  font-family: monospace;
+  font-size: 12px;
+  resize: none;
+  border: 1px solid #cccccc;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+}
+/* end site control widget */
+
+/* start general info widget */
+.general-info form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+}
+.general-info form :disabled,.general-info form :disabled::placeholder {
+  cursor: no-drop;
+  background-color: #f0f4f8;
+  color: #bbb;
+}
+/* end general info widget */
+
+/* start security info widget */
+/* end security info widget */
+
+/* start social info widget */
+.social-info .input {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+.social-info .input i {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.social-info .input i:has(+ :focus) {
+  color: var(--color);
+}
+.social-info .input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 12px;
+  border: none;
+  border-left: 1px solid #cccccc;
+}
+/* end social info widget */
+
+/* start backup manager widget */
+.backup-manager .storage {
+  gap: 10px;
+}
+.backup-manager .storage .item {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid transparent;
+}
+.backup-manager .storage .item:has( :checked) {
+  color: var(--blue-color);
+  border-color: var(--blue-color);
+  border-radius: 10px;
+}
+.backup-manager .storage .item label {
+  cursor: pointer;
+}
+.backup-manager .storage .item input {
+  display: none;
+  appearance: none;
+}
+/* end backup manager widget */
+/* end settings page styles */
