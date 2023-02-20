@@ -220,25 +220,34 @@ ul {
 }
 /* end page title */
 /* start wrapper */
-.wrapper {
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+.wrapper,
+.wrapper-300 {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
 }
+.wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+}
+.wrapper-300 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 @media (max-width: 767px) {
-  .wrapper {
+  .wrapper,
+  .wrapper-300 {
     grid-template-columns: minmax(200px, 1fr);
     margin-left: 10px;
     margin-right: 10px;
     gap: 10px;
   }
 }
+
 /* end wrapper */
 /* end content styles */
 
 /* start dashboard page styles */
-.wrapper > div {
+.wrapper > div,
+.wrapper-300 > div {
   border-radius: 10px;
   overflow: hidden;
 }
@@ -921,3 +930,78 @@ ul {
   border-radius: 50vh;
 }
 /* end projects page styles */
+
+/* start courses page styles */
+/* start course widget */
+
+.courses-page .course .cover {
+  overflow: hidden;
+}
+.courses-page .course .cover .image {
+  width: 100%;
+}
+.courses-page .course .cover .profile {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 2px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+.courses-page .course .info {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.courses-page .course .info .text p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.courses-page .course .info .footer {
+  border-top: 1px solid #eee;
+}
+.courses-page .course .info .footer a {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* end course widget */
+/* end courses page styles */
+
+/* start friends page styles */
+.friend {
+  padding: 40px 20px 20px;
+}
+.friends-page .friend .buttons {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.friends-page .friend .buttons span {
+  margin-right: 5px;
+}
+.friends-page .friend .personal img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.friends-page .friend .info {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.friends-page .friend .info .vip {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--orange-color);
+  opacity: 0.4;
+}
+
+/* end friends page styles */

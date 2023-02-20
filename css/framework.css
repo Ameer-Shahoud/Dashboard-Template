@@ -318,6 +318,23 @@
   color: black;
 }
 
+.rounded-btn {
+  width: fit-content;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--grey-color);
+  background-color: #eeeeee;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.rounded-btn:hover {
+  background-color: var(--blue-color);
+  color: white;
+}
+
 /* End Button */
 
 /* Start Tags */
