@@ -221,7 +221,8 @@ ul {
 /* end page title */
 /* start wrapper */
 .wrapper,
-.wrapper-300 {
+.wrapper-300,
+.wrapper-180 {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -232,13 +233,19 @@ ul {
 .wrapper-300 {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
+.wrapper-180 {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
 @media (max-width: 767px) {
   .wrapper,
   .wrapper-300 {
     grid-template-columns: minmax(200px, 1fr);
-    margin-left: 10px;
-    margin-right: 10px;
-    gap: 10px;
+  }
+  .wrapper-180 {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 20px;
   }
 }
 
@@ -247,7 +254,8 @@ ul {
 
 /* start dashboard page styles */
 .wrapper > div,
-.wrapper-300 > div {
+.wrapper-300 > div,
+.wrapper-180 > div {
   border-radius: 10px;
   overflow: hidden;
 }
@@ -1005,3 +1013,76 @@ ul {
 }
 
 /* end friends page styles */
+/* start files page styles */
+.files-page .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.files-page .files {
+  flex: 1;
+}
+.files-page .files .file > i {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.files-page .files .file .info img {
+  width: 60px;
+  transition: 0.3s;
+}
+.files-page .files .file:hover .info img {
+  transform: rotate(10deg);
+}
+.files-page .files .file .foot {
+  border-top: 1px solid #eee;
+}
+.files-page .stats {
+  margin: 0 20px 20px 0;
+  min-width: 250px;
+}
+.files-page .stats .list .box {
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.files-page .stats .list .box i {
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+  background-color: var(--color);
+}
+.files-page .stats .list .box .text {
+  flex: 1;
+}
+
+.files-page .stats .upload {
+  font-size: 12px;
+  padding: 8px 15px;
+  font-weight: normal;
+}
+
+.files-page .stats .upload:hover i {
+  animation: up 0.8s infinite;
+}
+
+@keyframes up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 767px) {
+  .files-page .container {
+    flex-direction: column-reverse;
+    align-items: normal;
+  }
+
+  .files-page .stats {
+    margin: 0 20px 20px 20px;
+  }
+}
+/* end files page styles */
