@@ -910,12 +910,16 @@ ul {
   margin-left: -20px;
 }
 .projects-page .project-box .services {
-  padding: 15px 0;
+  padding: 5px 0 15px;
   display: flex;
   justify-content: end;
   align-items: center;
+  flex-wrap: wrap;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+.projects-page .project-box .services span {
+  margin-top: 10px;
 }
 .projects-page .project-box .progress {
   padding: 20px 0 0;
