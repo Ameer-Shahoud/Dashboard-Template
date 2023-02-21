@@ -1086,3 +1086,51 @@ ul {
   }
 }
 /* end files page styles */
+
+/* start plans page styles */
+.plans-page .plan .head {
+  flex-direction: column;
+  color: white;
+  width: 100%;
+  padding: 30px;
+}
+.plans-page .plan .head::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border: 3px solid white;
+}
+.plans-page .plan .head p span {
+  position: absolute;
+  left: -20px;
+  top: -5px;
+}
+
+.plans-page .plan .list li i {
+  color: var(--grey-color);
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.plans-page .plan .list li p.t::before,
+.plans-page .plan .list li p.f::before {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  width: 16px;
+  text-align: center;
+}
+.plans-page .plan .list li p.t::before {
+  content: "\f00c";
+  color: var(--green-color);
+}
+.plans-page .plan .list li p.f::before {
+  content: "\f00d";
+  color: var(--red-color);
+}
+/* end plans page styles */
